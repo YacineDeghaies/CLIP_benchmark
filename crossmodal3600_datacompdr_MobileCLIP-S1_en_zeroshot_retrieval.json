@@ -1,0 +1,1 @@
+{"dataset": "crossmodal3600", "model": "MobileCLIP-S1", "pretrained": "datacompdr", "task": "zeroshot_retrieval", "metrics": {"image_retrieval_recall@5": 0.7719444632530212, "text_retrieval_recall@5": 0.8013888597488403}, "language": "en"}

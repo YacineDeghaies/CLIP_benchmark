@@ -1,0 +1,12 @@
+language,model_fullname,pretrained,dataset,task,image_retrieval_recall@5,model,text_retrieval_recall@5
+en,MobileCLIP-B datacompdr,datacompdr,crossmodal3600,zeroshot_retrieval,0.7933333516120911,MobileCLIP-B,0.8222222328186035
+en,MobileCLIP-S1 datacompdr,datacompdr,crossmodal3600,zeroshot_retrieval,0.7719444632530212,MobileCLIP-S1,0.8013888597488403
+en,MobileCLIP-S2 datacompdr,datacompdr,crossmodal3600,zeroshot_retrieval,0.7733333110809326,MobileCLIP-S2,0.8022222518920898
+en,MobileCLIP-B datacompdr_lt,datacompdr_lt,crossmodal3600,zeroshot_retrieval,0.7902777791023254,MobileCLIP-B,0.8177777528762817
+en,xlm-roberta-large-ViT-H-14 frozen_laion5b_s13b_b90k,frozen_laion5b_s13b_b90k,crossmodal3600,zeroshot_retrieval,0.778333306312561,xlm-roberta-large-ViT-H-14,0.7891666889190674
+en,nllb-clip-base-siglip mrl,mrl,crossmodal3600,zeroshot_retrieval,0.7588889002799988,nllb-clip-base-siglip,0.7438889145851135
+en,nllb-clip-large-siglip mrl,mrl,crossmodal3600,zeroshot_retrieval,0.7880555391311646,nllb-clip-large-siglip,0.7730555534362793
+en,ViT-B-32 openai,openai,crossmodal3600,zeroshot_retrieval,0.6524999737739563,ViT-B-32,0.6922222375869751
+en,nllb-clip-base-siglip v1,v1,crossmodal3600,zeroshot_retrieval,0.7441666722297668,nllb-clip-base-siglip,0.7524999976158142
+en,nllb-clip-large-siglip v1,v1,crossmodal3600,zeroshot_retrieval,0.7758333086967468,nllb-clip-large-siglip,0.7683333158493042
+en,nllb-clip-large v1,v1,crossmodal3600,zeroshot_retrieval,0.6661111116409302,nllb-clip-large,0.652222216129303
