@@ -1,0 +1,1 @@
+{"dataset": "crossmodal3600", "model": "xlm-roberta-large-ViT-H-14", "pretrained": "frozen_laion5b_s13b_b90k", "task": "zeroshot_retrieval", "metrics": {"image_retrieval_recall@1": 0.5136111378669739, "text_retrieval_recall@1": 0.527222216129303}, "language": "en"}
