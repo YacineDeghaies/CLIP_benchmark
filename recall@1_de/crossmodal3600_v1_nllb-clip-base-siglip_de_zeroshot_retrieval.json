@@ -1,0 +1,1 @@
+{"dataset": "crossmodal3600", "model": "nllb-clip-base-siglip", "pretrained": "v1", "task": "zeroshot_retrieval", "metrics": {"image_retrieval_recall@1": 0.6980555653572083, "text_retrieval_recall@1": 0.6744444370269775}, "language": "de"}

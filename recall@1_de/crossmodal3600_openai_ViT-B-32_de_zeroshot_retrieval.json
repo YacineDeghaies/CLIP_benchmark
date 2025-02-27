@@ -1,0 +1,1 @@
+{"dataset": "crossmodal3600", "model": "ViT-B-32", "pretrained": "openai", "task": "zeroshot_retrieval", "metrics": {"image_retrieval_recall@1": 0.0994444414973259, "text_retrieval_recall@1": 0.1574999988079071}, "language": "de"}

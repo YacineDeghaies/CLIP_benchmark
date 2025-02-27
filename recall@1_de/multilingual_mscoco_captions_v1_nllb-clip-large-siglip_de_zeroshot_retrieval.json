@@ -1,0 +1,1 @@
+{"dataset": "multilingual_mscoco_captions", "model": "nllb-clip-large-siglip", "pretrained": "v1", "task": "zeroshot_retrieval", "metrics": {"image_retrieval_recall@1": 0.7179999947547913, "text_retrieval_recall@1": 0.6729999780654907}, "language": "de"}

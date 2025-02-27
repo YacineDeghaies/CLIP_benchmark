@@ -1,0 +1,1 @@
+{"dataset": "multilingual_mscoco_captions", "model": "ViT-B-32", "pretrained": "openai", "task": "zeroshot_retrieval", "metrics": {"image_retrieval_recall@1": 0.11999999731779099, "text_retrieval_recall@1": 0.1850000023841858}, "language": "de"}

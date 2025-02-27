@@ -1,0 +1,1 @@
+{"dataset": "multilingual_mscoco_captions", "model": "MobileCLIP-S2", "pretrained": "datacompdr", "task": "zeroshot_retrieval", "metrics": {"image_retrieval_recall@1": 0.2669999897480011, "text_retrieval_recall@1": 0.35899999737739563}, "language": "de"}
