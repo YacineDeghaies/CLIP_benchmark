@@ -6,8 +6,6 @@ import torch.nn.functional as F
 from tqdm import tqdm
 from transformers import pipeline
 
-) of the input captions.
-    
 
 def get_translation_pipeline(src_lang):
     """
@@ -157,12 +155,3 @@ def batchify(func, X, Y, batch_size, device, *args, **kwargs):
         result = func(x, y, *args, **kwargs).cpu()
         results.append(result)
     return torch.cat(results)
-
-
-from transformers import pipeline
-
-def get_translation_pipeline(src_lang):
-    # Constructs the model name for Helsinki-NLP Opus-MT translation.
-    model_name = f"Helsinki-NLP/opus-mt-{src_lang}-en"
-    translator = pipeline("translation", model=model_name)
-    return translator

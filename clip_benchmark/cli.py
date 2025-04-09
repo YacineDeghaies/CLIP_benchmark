@@ -325,7 +325,7 @@ def run(args):
             recall_k_list=args.recall_k,
             device=args.device, 
             amp=args.amp,
-            lang=args.language
+            eval_language=args.language
         )
     elif task == "image_caption_selection":
         metrics = image_caption_selection.evaluate(
