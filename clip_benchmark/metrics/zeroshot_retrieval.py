@@ -70,11 +70,13 @@ def evaluate(model, dataloader, tokenizer,  device, eval_language="en", amp=True
         if eval_language != "en":
             translations = translator(flat_texts, max_length=512)
             translated_texts = [t["translation_text"] for t in translations]
+            print("TRANSLATION IS WORKING")
         else:
             translated_texts = flat_texts
+            print("TRANSLATION NOT WORKING")
             
         # tokenize all texts in the batch
-        batch_texts_tok = tokenizer([text for i, texts in enumerate(batch_texts) for text in texts]).to(device)
+        batch_texts_tok = tokenizer(translated_texts).to(device)
         # store the index of image for each text
         batch_texts_image_index = [ind for ind, texts in zip(inds, batch_texts) for text in texts]
 
