@@ -4,8 +4,30 @@ from contextlib import suppress
 import torch
 import torch.nn.functional as F
 from tqdm import tqdm
+from transformers import pipeline
 
-def evaluate(model, dataloader, tokenizer,  device, amp=True, recall_k_list=[5]):
+) of the input captions.
+    
+
+def get_translation_pipeline(src_lang):
+    """
+    Initializes and returns a translation pipeline from src_lang to English.
+    
+    Parameters:
+    -----------
+    src_lang : str
+        The source language code (e.g., "fr", "de"
+    Returns:
+    --------
+    translator : transformers.pipeline.Pipeline
+        A translation pipeline for src_lang -> "en".
+    """
+    # Build the model name; for example, for French use "Helsinki-NLP/opus-mt-fr-en"
+    model_name = f"Helsinki-NLP/opus-mt-{src_lang}-en"
+    translator = pipeline("translation", model=model_name)
+    return translator
+
+def evaluate(model, dataloader, tokenizer,  device, eval_language="en", amp=True, recall_k_list=[5]):
     """
     Evaluate the model on the given dataset
 
@@ -41,8 +63,18 @@ def evaluate(model, dataloader, tokenizer,  device, amp=True, recall_k_list=[5])
     texts_image_index = []
     dataloader = dataloader_with_indices(dataloader)
     autocast = torch.cuda.amp.autocast if amp else suppress
+    if eval_language != "en":
+        translator = get_translation_pipeline(eval_language)
     for batch_images, batch_texts, inds in tqdm(dataloader):
         batch_images = batch_images.to(device)
+        
+        flat_texts = [text for texts in batch_texts for text in texts]
+        if eval_language != "en":
+            translations = translator(flat_texts, max_length=512)
+            translated_texts = [t["translation_text"] for t in translations]
+        else:
+            translated_texts = flat_texts
+            
         # tokenize all texts in the batch
         batch_texts_tok = tokenizer([text for i, texts in enumerate(batch_texts) for text in texts]).to(device)
         # store the index of image for each text
@@ -125,3 +157,12 @@ def batchify(func, X, Y, batch_size, device, *args, **kwargs):
         result = func(x, y, *args, **kwargs).cpu()
         results.append(result)
     return torch.cat(results)
+
+
+from transformers import pipeline
+
+def get_translation_pipeline(src_lang):
+    # Constructs the model name for Helsinki-NLP Opus-MT translation.
+    model_name = f"Helsinki-NLP/opus-mt-{src_lang}-en"
+    translator = pipeline("translation", model=model_name)
+    return translator

@@ -324,7 +324,8 @@ def run(args):
             tokenizer, 
             recall_k_list=args.recall_k,
             device=args.device, 
-            amp=args.amp
+            amp=args.amp,
+            lang=args.language
         )
     elif task == "image_caption_selection":
         metrics = image_caption_selection.evaluate(
