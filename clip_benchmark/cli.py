@@ -23,11 +23,14 @@ from clip_benchmark.models import MODEL_TYPES, load_clip
 
 
 def get_parser_args():
+    print("Entry point 0")
     parser = argparse.ArgumentParser()
     subparsers = parser.add_subparsers()
     
     parser_eval = subparsers.add_parser('eval', help='Evaluate')
-    parser_eval.add_argument('--dataset', type=str, default="cifar10", nargs="+", help="Dataset(s) to use for the benchmark. Can be the name of a dataset, or a collection name ('vtab', 'vtab+', 'imagenet_robustness', 'retrieval') or path of a text file where each line is a dataset name")
+    parser_eval.add_argument(
+        '--dataset', type=str, default="cifar10", nargs="+", help="Dataset(s) to use for the benchmark. Can be the name of a dataset, or a collection name ('vtab', 'vtab+', 'imagenet_robustness', 'retrieval') or path of a text file where each line is a dataset name"
+    )
     parser_eval.add_argument('--dataset_root', default="root", type=str, help="dataset root folder where the datasets are downloaded. Can be in the form of a template depending on dataset name, e.g., --dataset_root='datasets/{dataset}'. This is useful if you evaluate on multiple datasets.")
     parser_eval.add_argument('--split', type=str, default="test", help="Dataset split to use")
     parser_eval.add_argument('--test_split', dest="split", action='store', type=str, default="test", help="Dataset split to use")

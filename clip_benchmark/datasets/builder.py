@@ -45,18 +45,30 @@ def build_dataset(dataset_name, root="root", transform=None, split="test", downl
         where keys are classnames and values are class-specific prompts.
 
     """
+    #check if templates/classnames are needed
+        #if task involves zeroshot retrieval or linear probe, then
+        #load the default or custom class names and prompt templates based on language and file
+        
     use_classnames_and_templates = task in ('zeroshot_classification', 'linear_probe')
     if use_classnames_and_templates:  # Only load templates and classnames if we have to
+        #since we load the classname & template files based on the language, we first have to get the directory where they all reside
+        #and then based on the given language load the right one
         current_folder = os.path.dirname(__file__)
 
         # Load <LANG>_classnames.json (packaged with CLIP benchmark that are used by default)
+        #construct the path to the actual file
         default_classname_file = os.path.join(current_folder, language + "_classnames.json")
+        #check if file path i just constructed exists
         if os.path.exists(default_classname_file):
+            #then open it
             with open(default_classname_file, "r") as f:
+                #then load it
                 default_classnames = json.load(f)
         else:
+        #otherwise assign it to None
             default_classnames = None
-        
+
+        #do the same thing for the rest of the classname & template files
         # Load <LANG>_zeroshot_classification_templates.json  (packaged with CLIP benchmark that are used by default)
         default_template_file = os.path.join(current_folder, language + "_zeroshot_classification_templates.json")
         if os.path.exists(default_template_file):
@@ -77,13 +89,18 @@ def build_dataset(dataset_name, root="root", transform=None, split="test", downl
         
         # Load custom template file if --custom_template_file is specified
         if custom_template_file:
+            #if user given file does not exist
             if not os.path.exists(custom_template_file):
                 # look at current_folder
                 custom_template_file = os.path.join(current_folder, custom_template_file)
+                #if a custom_template_file still does not exist, then assert the error
             assert os.path.exists(custom_template_file), f"Custom template file '{custom_template_file}' does not exist"
+            #open the template file
             with open(custom_template_file, "r") as f:
+                #load it
                 custom_templates = json.load(f)
         else:
+        #otherwise
             custom_templates = None
  
     def download_imagenet(r):
@@ -91,32 +108,49 @@ def build_dataset(dataset_name, root="root", transform=None, split="test", downl
         call(f"wget https://image-net.org/data/ILSVRC/2012/ILSVRC2012_devkit_t12.tar.gz --output-document={r}/ILSVRC2012_devkit_t12.tar.gz", shell=True)            
         call(f"wget https://image-net.org/data/ILSVRC/2012/ILSVRC2012_img_val.tar --output-document={r}/ILSVRC2012_img_val.tar", shell=True)            
 
+    #most of the 
     train = (split == "train")
+    
+    #load the cifar10 dataset
     if dataset_name == "cifar10":
         assert split in ("train", "test"), f"Only `train` and `test` split available for {dataset_name}"
         ds = CIFAR10(root=root, train=train, transform=transform, download=download, **kwargs)
+    #load the cifar100 dataset
     elif dataset_name == "cifar100":
         assert split in ("train", "test"), f"Only `train` and `test` split available for {dataset_name}"
         ds = CIFAR100(root=root, train=train, transform=transform, download=download, **kwargs)
+    #load the imagenet1k dataset
     elif dataset_name == "imagenet1k":
         assert split in ("train", "test"), f"Only `train` and `test` split available for {dataset_name}"
         if not os.path.exists(root):
             download_imagenet(root)
         ds = ImageNet(root=root, split="train" if train else "val", transform=transform, **kwargs)
-        ds.classes = default_classnames["imagenet1k"]
+        ds.classes = default_classnames["imagenet1k"] #classnames are needed for zeroshot classification not for retrival !
+    
+    #concept: how to load the imagenet-w
+    #add it's AddWatermark transform before the Normalize
+        #find the index of the Normalize transform
+            #save it
+        #find the CenterCrop transform
+            #extract the min size from it
+            #pass it to the AddWatermark
+    #create instance using ImageNet class from pytorch combined with the Addwatermark transform from last step
     elif dataset_name == "imagenet-w":
+        #make sure the user specified split exists within the dataset
         assert split in ("train", "test"), f"Only `train` and `test` split available for {dataset_name}"
+        #import some dataset required Transforms
         from imagenet_w import AddWatermark
-        from torchvision.transforms import CenterCrop, Normalize
+        from torchvision.transforms import CenterCrop, Normalize #import those transforms so we can check against them later in the code
+        #check if the dataset already exists do we don't need to download it again
         if not os.path.exists(root):
-            download_imagenet(root)
-        index_normalize = None
-        crop_size = None
+            download_imagenet(root) #regardless of the dataset, this function will always download the dataset
+        index_normalize = None #initialize a variable to hold the index
+        crop_size = None #initialize a var to hold the extracted min size later in the code
         for i, t in enumerate(transform.transforms):
             if isinstance(t, Normalize):
                 index_normalize = i
             elif isinstance(t, CenterCrop):
-                crop_size = min(t.size)
+                crop_size = min(t.size) #rule: AddWatermark always take a square size
         assert crop_size is not None, "CenterCrop not found in transform"
         assert index_normalize is not None, "Normalize not found in transform"
         transform.transforms.insert(index_normalize, AddWatermark(crop_size))
@@ -273,15 +307,23 @@ def build_dataset(dataset_name, root="root", transform=None, split="test", downl
             multilingual_mscoco.create_annotation_file(root, language)
 
         ds = multilingual_mscoco.Multilingual_MSCOCO(root=root, ann_file=annotation_file, transform=transform, **kwargs)
+    #concept: to load the crossmodal3600 dataset
+    #
     elif dataset_name == 'crossmodal3600':
+        #import the crossmodal3600 module
         from clip_benchmark.datasets import crossmodal3600
+        #check if user-passed language is supported, if not raise an Error
         if language not in crossmodal3600.SUPPORTED_LANGUAGES:
             raise ValueError("Unsupported language for Crossmodal-3600:", language)
 
+        #construct the path to the language-specific annotation file
         annotation_file = os.path.join(root, crossmodal3600.OUTPUT_FILENAME_TEMPLATE.format(language))
+        #check if the constructed path exists
         if not os.path.exists(annotation_file):
+            #..
             crossmodal3600.create_annotation_file(root, language)
 
+        #create a Crossmodal3600 dataset instance
         ds = crossmodal3600.Crossmodal3600(root=root, ann_file=annotation_file, transform=transform, **kwargs)
     elif dataset_name == 'xtd200':
         from clip_benchmark.datasets import xtd200

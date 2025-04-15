@@ -112,6 +112,7 @@ def create_annotation_file(root, lang_code):
     captions_path = os.path.join(data_dir, "captions.jsonl")
     if not os.path.exists(captions_path):
         _download_captions(data_dir)
+        #would be wise to add an assert here to check if captions downloaded successfully incase link goes broken in the future
     with open(captions_path, "r", encoding="utf-8") as f:
         data = f.readlines()
     data = [json.loads(line) for line in data]
