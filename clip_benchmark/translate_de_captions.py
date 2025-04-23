@@ -7,13 +7,6 @@ import time
 #create a Pipeline & use a batch_size to improve speed
 translator = pipeline("translation", model="Helsinki-NLP/opus-mt-de-en")
 
-#test the Pipeline
-print(type(translator("Ich bastle mit Clip-Netzwerke!")))
-
-#see a sample looks like
-     #extract the translated text only
-print(translator("Ich bastle mit Clip-Netzwerke!")[0]["translation_text"])
-
 #initialize a list to collect all translated captions for later use
 translated = []
 batch_size=64
@@ -25,7 +18,7 @@ caption_x_file = "/vol/fob-vol3/mi20/deghaisa/code/CLIP_benchmark/clip_benchmark
 with open(caption_x_file) as f:
      #load the file
      data = json.load(f)
-     #extract original captions - no need to iterate through the loop
+     #extract original captions - no need to iterate through a loop for this
      captions = data["annotations"]
      for i in range(0, len(captions), batch_size):
           batch = captions[i:i+batch_size]

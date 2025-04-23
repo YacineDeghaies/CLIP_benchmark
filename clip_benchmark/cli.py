@@ -80,12 +80,19 @@ def get_parser_args():
     return parser, args
 
 def main():
+    #receive the praser
+    #receive the parsed arguments
     parser, base = get_parser_args()
+    
+    #check if the arg "which" is exists
+        #if not print help and exit
     if not hasattr(base, "which"):
         parser.print_help()
         return
+    #if sub-command eval is passed, switch to the handle function main_eval() and pass it the parsed args
     if base.which == "eval":
         main_eval(base)
+    #if sub-command build is passed, switch to the handler function main_build() and pass it the parsed args
     elif base.which == "build":
         main_build(base)
 
