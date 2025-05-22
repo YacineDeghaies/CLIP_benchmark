@@ -25,7 +25,7 @@ for i in range(0, len(captions), batch_size):
     translated.extend(r.text for r in results)
 
 # ensure output directory exists
-out_dir = Path("./api_translated_annotation_files")
+out_dir = Path("./xx_to_eng_captions")
 out_dir.mkdir(parents=True, exist_ok=True)
 
 with open(out_dir / "captions_de_to_en.json", "w", encoding="utf-8") as cf:

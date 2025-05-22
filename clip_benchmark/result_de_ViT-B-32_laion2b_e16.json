@@ -1,1 +1,0 @@
-{"dataset": "crossmodal3600", "model": "ViT-B-32", "pretrained": "laion2b_e16", "task": "zeroshot_retrieval", "metrics": {"image_retrieval_recall@5": 0.8711110949516296, "text_retrieval_recall@5": 0.8852777481079102}, "language": "de"}
