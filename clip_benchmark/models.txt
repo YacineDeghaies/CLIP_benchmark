@@ -17,10 +17,7 @@ EVA02-E-14-plus,laion2b_s9b_b144k
 EVA02-E-14,laion2b_s4b_b115k
 convnext_xxlarge,laion2b_s34b_b82k_augreg_soup
 convnext_xxlarge,laion2b_s34b_b82k_augreg
-coca_ViT-L-14,mscoco_finetuned_laion2b_s13b_b90k
-coca_ViT-L-14,laion2b_s13b_b90k
 EVA01-g-14-plus,merged2b_s11b_b114k
-EVA02-E-14,laion2b_s4b_b115k
 convnext_large_d_320,laion2b_s29b_b131k_ft_soup	
 convnext_large_d_320,laion2b_s29b_b131k_ft
 ViT-g-14,laion2b_s34b_b88k
@@ -37,7 +34,6 @@ convnext_base_w_320,laion_aesthetic_s13b_b82k_augreg
 EVA02-B-16,merged2b_s8b_b131k
 RN50x64,openai
 RN50,cc12m
-coca_ViT-B-32,laion2b_s13b_b90k
 coca_ViT-B-32,laion2b_s13b_b90k
 RN101-quickgelu,openai
 RN101,yfcc15m

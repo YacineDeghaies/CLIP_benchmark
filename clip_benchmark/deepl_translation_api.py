@@ -10,7 +10,7 @@ SOURCE_LANG, TARGET_LANG = "DE", "EN-US"
 batch_size = 50                          
 translated = []
 
-captions_file_path = "/vol/fob-vol3/mi20/deghaisa/code/CLIP_benchmark/clip_benchmark/root/crossmodal3600_captions-de.json"
+captions_file_path = "/vol/fob-vol3/mi20/deghaisa/code/CLIP_benchmark/clip_benchmark/root/crossmodal3600_captions-fr.json"
 with open(captions_file_path) as f:
     data = json.load(f)
     captions = data["annotations"]
@@ -25,10 +25,10 @@ for i in range(0, len(captions), batch_size):
     translated.extend(r.text for r in results)
 
 # ensure output directory exists
-out_dir = Path("./xx_to_eng_captions")
+out_dir = Path("./fr_to_eng_captions")
 out_dir.mkdir(parents=True, exist_ok=True)
 
-with open(out_dir / "captions_de_to_en.json", "w", encoding="utf-8") as cf:
+with open(out_dir / "captions_fr_to_en.json", "w", encoding="utf-8") as cf:
     json.dump(
         {
             "image_paths": data["image_paths"],
