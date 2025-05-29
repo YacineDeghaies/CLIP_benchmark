@@ -1,0 +1,7 @@
+model,pretrained,avg,image_retrieval_recall@1,image_retrieval_recall@5,image_retrieval_recall@10
+ViT-H-14-378-quickgelu,dfn5b,0.9193,0.8175,0.96,0.9803
+coca_ViT-L-14,mscoco_finetuned_laion2b_s13b_b90k,0.9067,0.7931,0.9506,0.9764
+ViT-L-16-SigLIP-384,webli,0.9036,0.7869,0.9486,0.9753
+nllb-clip-base,v1,0.6969,0.4764,0.7653,0.8489
+RN101,yfcc15m,0.6357,0.4133,0.7017,0.7922
+ViT-B-32,commonpool_s_laion_s13m_b4k,0.0908,0.0253,0.0961,0.1511

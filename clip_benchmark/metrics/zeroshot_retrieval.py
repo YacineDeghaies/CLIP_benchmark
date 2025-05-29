@@ -32,24 +32,30 @@ def evaluate(model, dataloader, tokenizer,  device, amp=True, recall_k_list=[5])
     -------
     
     dict of retrieval metrics
-    """
+    # """
+    
     # list of batch of images embedding
     batch_images_emb_list = []
     # list of batch of text embedding
     batch_texts_emb_list = []
     # for each text, we collect the corresponding image index, as each image can have multiple corresponding texts
     texts_image_index = []
+
+
     dataloader = dataloader_with_indices(dataloader)
     autocast = torch.cuda.amp.autocast if amp else suppress
     for batch_images, batch_texts, inds in tqdm(dataloader):
         batch_images = batch_images.to(device)
-        # tokenize all texts in the batch
+        # flattens all batches into a single list and tokenize them all
         batch_texts_tok = tokenizer([text for i, texts in enumerate(batch_texts) for text in texts]).to(device)
+        batch_texts_tok = tokenizer([text for texts in batch_texts for text in texts]).to(device)
         # store the index of image for each text
+            # zipping two lists together
         batch_texts_image_index = [ind for ind, texts in zip(inds, batch_texts) for text in texts]
 
         # compute the embedding of images and texts
         with torch.no_grad(), autocast():
+            
             batch_images_emb = F.normalize(model.encode_image(batch_images), dim=-1)
             batch_texts_emb = F.normalize(model.encode_text(batch_texts_tok), dim=-1)
 
@@ -57,6 +63,7 @@ def evaluate(model, dataloader, tokenizer,  device, amp=True, recall_k_list=[5])
         batch_texts_emb_list.append(batch_texts_emb.cpu())
         texts_image_index.extend(batch_texts_image_index)
         
+    #retrieves the size of each batch (assuming all batches have the same size)
     batch_size = len(batch_images_emb_list[0])
 
     # concatenate all embeddings
@@ -66,7 +73,7 @@ def evaluate(model, dataloader, tokenizer,  device, amp=True, recall_k_list=[5])
     # get the score for each text and image pair
     scores  = texts_emb @ images_emb.t()
 
-    # construct a the positive pair matrix, which tells whether each text-image pair is a positive or not
+    # construct the positive pair matrix, which tells whether each text-image pair is a positive or not
     positive_pairs = torch.zeros_like(scores, dtype=bool)
     positive_pairs[torch.arange(len(scores)), texts_image_index] = True
     metrics = {}

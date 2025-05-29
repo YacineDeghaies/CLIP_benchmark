@@ -1,40 +1,40 @@
-model,dataset,image_retrieval_recall@1,model_fullname,pretrained,task,image_retrieval_recall@10,image_retrieval_recall@5
-RN50,crossmodal3600,0.5147222280502319,RN50 cc12m,cc12m,zeroshot_retrieval,0.8700000047683716,0.7919444441795349
-ViT-B-16,crossmodal3600,0.6077777743339539,ViT-B-16 commonpool_l_laion_s1b_b8k,commonpool_l_laion_s1b_b8k,zeroshot_retrieval,0.9197221994400024,0.8600000143051147
-ViT-B-32,crossmodal3600,0.0252777785062789,ViT-B-32 commonpool_s_laion_s13m_b4k,commonpool_s_laion_s13m_b4k,zeroshot_retrieval,0.1511111110448837,0.0961111113429069
-ViT-L-14,crossmodal3600,0.6386111378669739,ViT-L-14 commonpool_xl_s13b_b90k,commonpool_xl_s13b_b90k,zeroshot_retrieval,0.9186111092567444,0.8608333468437195
-ViT-bigG-14-CLIPA-336,crossmodal3600,0.7555555701255798,ViT-bigG-14-CLIPA-336 datacomp1b,datacomp1b,zeroshot_retrieval,0.9638888835906982,0.9300000071525574
-ViT-B-32,crossmodal3600,0.6627777814865112,ViT-B-32 datacomp_xl_s13b_b90k,datacomp_xl_s13b_b90k,zeroshot_retrieval,0.9352777600288392,0.8880555629730225
-ViT-H-14-378-quickgelu,crossmodal3600,0.8174999952316284,ViT-H-14-378-quickgelu dfn5b,dfn5b,zeroshot_retrieval,0.9802777767181396,0.959999978542328
-xlm-roberta-large-ViT-H-14,crossmodal3600,0.7513889074325562,xlm-roberta-large-ViT-H-14 frozen_laion5b_s13b_b90k,frozen_laion5b_s13b_b90k,zeroshot_retrieval,0.9663888812065125,0.9352777600288392
-roberta-ViT-B-32,crossmodal3600,0.6775000095367432,roberta-ViT-B-32 laion2b_s12b_b32k,laion2b_s12b_b32k,zeroshot_retrieval,0.9352777600288392,0.8930555582046509
-ViT-g-14,crossmodal3600,0.7408333420753479,ViT-g-14 laion2b_s12b_b42k,laion2b_s12b_b42k,zeroshot_retrieval,0.9616666436195374,0.9266666769981384
-convnext_base_w,crossmodal3600,0.7122222185134888,convnext_base_w laion2b_s13b_b82k,laion2b_s13b_b82k,zeroshot_retrieval,0.9527778029441832,0.910277783870697
-coca_ViT-B-32,crossmodal3600,0.6608333587646484,coca_ViT-B-32 laion2b_s13b_b90k,laion2b_s13b_b90k,zeroshot_retrieval,0.9305555820465088,0.8788889050483704
-coca_ViT-L-14,crossmodal3600,0.714722216129303,coca_ViT-L-14 laion2b_s13b_b90k,laion2b_s13b_b90k,zeroshot_retrieval,0.9508333206176758,0.9108333587646484
-convnext_large_d_320,crossmodal3600,0.7569444179534912,convnext_large_d_320 laion2b_s29b_b131k_ft,laion2b_s29b_b131k_ft,zeroshot_retrieval,0.9641666412353516,0.9288889169692992
-convnext_large_d_320,crossmodal3600,0.753333330154419,convnext_large_d_320 laion2b_s29b_b131k_ft_soup,laion2b_s29b_b131k_ft_soup,zeroshot_retrieval,0.9663888812065125,0.9319444298744202
-ViT-H-14,crossmodal3600,0.753333330154419,ViT-H-14 laion2b_s32b_b79k,laion2b_s32b_b79k,zeroshot_retrieval,0.966944456100464,0.9302777647972108
-convnext_xxlarge,crossmodal3600,0.7583333253860474,convnext_xxlarge laion2b_s34b_b82k_augreg,laion2b_s34b_b82k_augreg,zeroshot_retrieval,0.959999978542328,0.9344444274902344
-convnext_xxlarge,crossmodal3600,0.7586110830307007,convnext_xxlarge laion2b_s34b_b82k_augreg_soup,laion2b_s34b_b82k_augreg_soup,zeroshot_retrieval,0.9619444608688354,0.9366666674613952
-ViT-g-14,crossmodal3600,0.7488889098167419,ViT-g-14 laion2b_s34b_b88k,laion2b_s34b_b88k,zeroshot_retrieval,0.9605555534362792,0.9230555295944214
-ViT-bigG-14,crossmodal3600,0.7583333253860474,ViT-bigG-14 laion2b_s39b_b160k,laion2b_s39b_b160k,zeroshot_retrieval,0.9702777862548828,0.9358333349227904
-EVA02-E-14,crossmodal3600,0.76583331823349,EVA02-E-14 laion2b_s4b_b115k,laion2b_s4b_b115k,zeroshot_retrieval,0.9661111235618592,0.929444432258606
-EVA02-E-14-plus,crossmodal3600,0.7680555582046509,EVA02-E-14-plus laion2b_s9b_b144k,laion2b_s9b_b144k,zeroshot_retrieval,0.966944456100464,0.938611090183258
-xlm-roberta-base-ViT-B-32,crossmodal3600,0.6880555748939514,xlm-roberta-base-ViT-B-32 laion5b_s13b_b90k,laion5b_s13b_b90k,zeroshot_retrieval,0.9411110877990724,0.8980555534362793
-convnext_base_w_320,crossmodal3600,0.7191666960716248,convnext_base_w_320 laion_aesthetic_s13b_b82k_augreg,laion_aesthetic_s13b_b82k_augreg,zeroshot_retrieval,0.9563888907432556,0.9169444441795348
-EVA01-g-14-plus,crossmodal3600,0.7655555605888367,EVA01-g-14-plus merged2b_s11b_b114k,merged2b_s11b_b114k,zeroshot_retrieval,0.9700000286102296,0.9391666650772096
-EVA02-L-14,crossmodal3600,0.7044444680213928,EVA02-L-14 merged2b_s4b_b131k,merged2b_s4b_b131k,zeroshot_retrieval,0.945277750492096,0.9049999713897704
-EVA02-L-14-336,crossmodal3600,0.7086111307144165,EVA02-L-14-336 merged2b_s6b_b61k,merged2b_s6b_b61k,zeroshot_retrieval,0.9430555701255798,0.906944453716278
-EVA02-B-16,crossmodal3600,0.6786110997200012,EVA02-B-16 merged2b_s8b_b131k,merged2b_s8b_b131k,zeroshot_retrieval,0.9411110877990724,0.8958333134651184
-ViT-L-14-quickgelu,crossmodal3600,0.6869444251060486,ViT-L-14-quickgelu metaclip_400m,metaclip_400m,zeroshot_retrieval,0.9461110830307008,0.9008333086967468
-nllb-clip-large-siglip,crossmodal3600,0.7677778005599976,nllb-clip-large-siglip mrl,mrl,zeroshot_retrieval,0.9674999713897704,0.9322222471237184
-coca_ViT-L-14,crossmodal3600,0.793055534362793,coca_ViT-L-14 mscoco_finetuned_laion2b_s13b_b90k,mscoco_finetuned_laion2b_s13b_b90k,zeroshot_retrieval,0.9763888716697692,0.9505555629730223
-RN101-quickgelu,crossmodal3600,0.5488888621330261,RN101-quickgelu openai,openai,zeroshot_retrieval,0.8752777576446533,0.7958333492279053
-RN50x64,crossmodal3600,0.5847222208976746,RN50x64 openai,openai,zeroshot_retrieval,0.9002777934074402,0.8374999761581421
-nllb-clip-base,crossmodal3600,0.4763889014720917,nllb-clip-base v1,v1,zeroshot_retrieval,0.8488888740539551,0.7652778029441833
-ViT-B-16-SigLIP-i18n-256,crossmodal3600,0.7366666793823242,ViT-B-16-SigLIP-i18n-256 webli,webli,zeroshot_retrieval,0.9527778029441832,0.9122222065925598
-ViT-L-16-SigLIP-256,crossmodal3600,0.7733333110809326,ViT-L-16-SigLIP-256 webli,webli,zeroshot_retrieval,0.9744444489479064,0.9461110830307008
-ViT-L-16-SigLIP-384,crossmodal3600,0.7869444489479065,ViT-L-16-SigLIP-384 webli,webli,zeroshot_retrieval,0.9752777814865112,0.9486111402511596
-ViT-SO400M-14-SigLIP,crossmodal3600,0.7438889145851135,ViT-SO400M-14-SigLIP webli,webli,zeroshot_retrieval,0.9566666483879088,0.9247221946716307
-RN101,crossmodal3600,0.4133333265781402,RN101 yfcc15m,yfcc15m,zeroshot_retrieval,0.7922222018241882,0.7016666531562805
+model,pretrained,avg,image_retrieval_recall@1,image_retrieval_recall@5,image_retrieval_recall@10
+RN50,cc12m,0.7256,0.5147,0.7919,0.87
+ViT-B-16,commonpool_l_laion_s1b_b8k,0.7958,0.6078,0.86,0.9197
+ViT-B-32,commonpool_s_laion_s13m_b4k,0.0908,0.0253,0.0961,0.1511
+ViT-L-14,commonpool_xl_s13b_b90k,0.806,0.6386,0.8608,0.9186
+ViT-bigG-14-CLIPA-336,datacomp1b,0.8831,0.7556,0.93,0.9639
+ViT-B-32,datacomp_xl_s13b_b90k,0.8287,0.6628,0.8881,0.9353
+ViT-H-14-378-quickgelu,dfn5b,0.9193,0.8175,0.96,0.9803
+xlm-roberta-large-ViT-H-14,frozen_laion5b_s13b_b90k,0.8844,0.7514,0.9353,0.9664
+roberta-ViT-B-32,laion2b_s12b_b32k,0.8353,0.6775,0.8931,0.9353
+ViT-g-14,laion2b_s12b_b42k,0.8764,0.7408,0.9267,0.9617
+convnext_base_w,laion2b_s13b_b82k,0.8584,0.7122,0.9103,0.9528
+coca_ViT-B-32,laion2b_s13b_b90k,0.8234,0.6608,0.8789,0.9306
+coca_ViT-L-14,laion2b_s13b_b90k,0.8588,0.7147,0.9108,0.9508
+convnext_large_d_320,laion2b_s29b_b131k_ft,0.8833,0.7569,0.9289,0.9642
+convnext_large_d_320,laion2b_s29b_b131k_ft_soup,0.8839,0.7533,0.9319,0.9664
+ViT-H-14,laion2b_s32b_b79k,0.8835,0.7533,0.9303,0.9669
+convnext_xxlarge,laion2b_s34b_b82k_augreg,0.8843,0.7583,0.9344,0.96
+convnext_xxlarge,laion2b_s34b_b82k_augreg_soup,0.8857,0.7586,0.9367,0.9619
+ViT-g-14,laion2b_s34b_b88k,0.8775,0.7489,0.9231,0.9606
+ViT-bigG-14,laion2b_s39b_b160k,0.8881,0.7583,0.9358,0.9703
+EVA02-E-14,laion2b_s4b_b115k,0.8871,0.7658,0.9294,0.9661
+EVA02-E-14-plus,laion2b_s9b_b144k,0.8912,0.7681,0.9386,0.9669
+xlm-roberta-base-ViT-B-32,laion5b_s13b_b90k,0.8424,0.6881,0.8981,0.9411
+convnext_base_w_320,laion_aesthetic_s13b_b82k_augreg,0.8642,0.7192,0.9169,0.9564
+EVA01-g-14-plus,merged2b_s11b_b114k,0.8916,0.7656,0.9392,0.97
+EVA02-L-14,merged2b_s4b_b131k,0.8516,0.7044,0.905,0.9453
+EVA02-L-14-336,merged2b_s6b_b61k,0.8529,0.7086,0.9069,0.9431
+EVA02-B-16,merged2b_s8b_b131k,0.8385,0.6786,0.8958,0.9411
+ViT-L-14-quickgelu,metaclip_400m,0.8446,0.6869,0.9008,0.9461
+nllb-clip-large-siglip,mrl,0.8892,0.7678,0.9322,0.9675
+coca_ViT-L-14,mscoco_finetuned_laion2b_s13b_b90k,0.9067,0.7931,0.9506,0.9764
+RN101-quickgelu,openai,0.74,0.5489,0.7958,0.8753
+RN50x64,openai,0.7742,0.5847,0.8375,0.9003
+nllb-clip-base,v1,0.6969,0.4764,0.7653,0.8489
+ViT-B-16-SigLIP-i18n-256,webli,0.8672,0.7367,0.9122,0.9528
+ViT-L-16-SigLIP-256,webli,0.898,0.7733,0.9461,0.9744
+ViT-L-16-SigLIP-384,webli,0.9036,0.7869,0.9486,0.9753
+ViT-SO400M-14-SigLIP,webli,0.8751,0.7439,0.9247,0.9567
+RN101,yfcc15m,0.6357,0.4133,0.7017,0.7922
