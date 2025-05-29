@@ -1,7 +1,7 @@
 import pandas as pd
 
 # --- Load the original CSV ---
-file_path = "/vol/fob-vol3/mi20/deghaisa/code/CLIP_benchmark/clip_benchmark/fr_to_eng_benchmark/fr_to_en_benchmark.csv"
+file_path = "fr_to_en_benchmark.csv" #modify file name for further formatting
 df = pd.read_csv(file_path)
 
 # --- 1.  Add the average Recall column ---
